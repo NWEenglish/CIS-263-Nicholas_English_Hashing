@@ -22,61 +22,57 @@ class superhero {
 	/* Default Constructor */
 	superhero();
 
-	/* Actual Constructor */
-	superhero(int page_id, std::string name, std::string urlslug,
-	    std::string id, sttd::string alignment, char eye_color,
-	    char hair_color, char sex, std::string gsm, bool alive,
-	    int appearences, std::string first_appearance, int year);
-
 	/** Setters */
 	// (1) http://www.zeuscmd.com/tutorials/cplusplus/50-GettersAndSetters.php
+	// (2) https://stackoverflow.com/questions/14517546/how-can-a-c-header-file-include-implementation
+
 	// Set name
-	void setName(std::string n) { name = n; }
+	void setName(std::string n);
 
 	// Set id
-	void setID(std::string i) { id = i; }
+	void setID(std::string i);
 
 	// Set urlslug
-	void setUrl(std::string u) { urlslug = u; }
+	void setUrl(std::string u);
 
 	// Set page_id
-	void setPgID(int i) {page_id = i;}
+	void setPgID(int p);
 
 	// Set alignment
-	void setAlign(int a) {alignment = a;}
+	void setAlign(int a);
 
 	// Set eye_color
-	void setEye(char e) {eye_color = e;}
+	void setEye(char e);
 
 	// Set hair_color
-	void setHair(char h) {hair_color = h;}
+	void setHair(char h);
 
 	// Set sex
-	void setSex(char s) {sex = s;}
+	void setSex(char s);
 
 	// Set gsm
-	void setGSM(std::string g) {gsm = g;}
+	void setGSM(std::string g);
 
 	// Set alive
-	void setAlive(bool a) {alive = a;}
+	void setAlive(bool a);
 
 	// Set appearances
-	void setAppear(int a) {appearance = a;}
+	void setAppear(int a);
 
 	// Set first_appearance
-	void setFirst(std::string f) {first_appearance = f;}
+	void setFirst(std::string f);
 
 	// Set year
-	void setYear(int y) {year = y;}
+	void setYear(int y);
 
 	/** Getters */
 	// Only need to get two items later, so only writing two.
 	
 	// Gets name
-	std::string getName() const {return name;}
+	std::string getName() const;
 
 	// Gets page_id
-	int getPgID() const {return page_id;}
+	int getPgID() const;
 
     /*****************************************************************/
 
