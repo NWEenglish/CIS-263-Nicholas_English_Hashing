@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
     // (1) https://stackoverflow.com/questions/12641091/limit-scope-of-define-labels
     const int SIZE = 13; // For 13 parameters (see variables below)
 
-    /* All info that will be read in and placed into the Superhero object */
+    /* All parameters in the Superhero object */
     int page_id;
     std::string name;
     std::string urlslug;
@@ -60,8 +60,20 @@ int main(int argc, char** argv) {
     std::string sexStr;
     std::string aliveStr;
 
-    /* Collision counter */
-    totalCollisions = 0;
+    /* Creates the tableobjects */
+    my_Hash hashmap1;
+    my_Hash hashmap2;
+    my_Hash hashmap3;
+
+    /* Sets each hashmap to their specified function */
+    hashmap1.setHashFunction(1);
+    hashmap2.setHashFunction(2);
+    hashmap3.setHashFunction(3);
+
+    /* Collision counters */
+    collision1 = 0;
+    collision2 = 0;
+    collision3 = 0;
     
     /* Used to read in the file */
     // (1) https://github.com/irawoodring/343/blob/master/operator_overloading/code_samples/vector.cpp
@@ -103,7 +115,14 @@ int main(int argc, char** argv) {
 	superhero.setYeat(year);
 
 	/* Inserts object into the hash table */
+	if(hashmap1.insert(superhero) == false)
+	    collision1++;
 
+	if(hashmap2.insert(superhero) == false)
+	    collision2++;
+
+	if(hashmap3.insert(superhero) == false)
+	    collision3++;
 
     }
 
@@ -112,7 +131,9 @@ int main(int argc, char** argv) {
     std::ofstream output("RESULTS.md");
 
     // Outputs the total number of collisions that occured.
-    output << "The total number of collisions that occured is: " << totalCollisions << std::endl;
+    output << "\n Collisions in first hashing function: " << collision1 << std::endl;
+    output << "\n Collisions in seconds hashing function: " << collision2 << std::endl;
+    output << "\n Collisions in third hashing function: " << collision3 << std::endl;
 
     /* End of program reached */
     output.close();
