@@ -8,14 +8,117 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+#include "superhero.h"
 
 class my_Hash {
 
     public:
-	bool insert(const Superhero & s);
+
+	/* Default constructor */
+	my_Hash() {
+	    hashTable.reserve(SIZE);
+	}
+
+	/*************************************************************
+ 	* Used to insert the Superhero object onto the hashmap.
+ 	*
+ 	* @param The superhero object.
+ 	* @return A boolean that returns true if there was a 
+ 	*     collision.
+ 	*************************************************************/ 
+	bool insert(const Superhero & s) {
+	    int location = 0;
+	    bool ableToInsert = false;
+
+	    /* Gets the location of where to place the object */	    
+	    if(functionSelection == 1)
+		location = hashFunction1(superhero.getName());
+	    else if(functionSelection == 2)
+		location = hashFunction2(superhero.getName());
+	    else if(functionSelection == 3)
+		location = hashFunction3(superhero.getName());
+
+	    return ableToInsert;
+	}
+
+	/*************************************************************
+ 	* 
+ 	*************************************************************/ 
 	Superhero & get(const std::string name);
 
+	/*************************************************************
+	 * First hash function. This function works by taking the
+	 * ASCII value of each character in the superhero's name and
+	 * then adds it together.
+	 *
+	 * @param name Holds the superhero's name.
+	 * @return location Holds the location where the superhero was
+	 * 	placed in the hash map.
+	 ************************************************************/
+	int hashFunction1(std::string name) {
+	    int asciiValue = 0;
+
+	    /* Loops through the entire string */
+	    for(int i = 0; i < name.size(); i++) {
+		asciiValue =+ name[i];
+	    }
+	    
+	    return asciiValue % SIZE;
+	}
+
+	/*************************************************************
+	 * Second hash function. This function works by taking the
+	 * total number of letter in the name and sorting it based on
+	 * that alone.
+	 *
+	 * @param name Holds the superhero's name.
+	 * @return location Holds the location where the superhero was
+	 * 	placed in the hash map.
+	 ************************************************************/  
+	int hashFunction2(std::string name) {
+	    return name.size() % SIZE;
+	}
+
+	/*************************************************************
+	 * Third hash function. This function works by placing taking
+	 * the first two letters and sorting it based on those added
+	 * together and then multiplied by three.
+	 *
+	 * @param name Holds the superhero's name.
+	 * @return location Holds the location where the superhero was
+	 * 	placed in the hash map.
+	 ************************************************************/ 
+	int hashFunction3(std::string name) {
+	    int value = 0;
+
+	    value = 3 * ( name[0] + name[1] );
+
+	    return value % SIZE;
+	}
+
+	/*************************************************************
+	 * Sets the hash function that is being process in this
+	 * process.
+	 *
+	 * @param choice Holds the function choice.
+	 ************************************************************/
+	void setHashFunction(int choice) {
+	     functionSelection = choice;
+	}
+
+
     private:
+
+	/* Variables */
+	// Holds the table size
+	const int SIZE = 17011;
+
+	// Holds the Superhero object in a double vector.
+	std::vector< std::vector<Superhero> > hash
+
+	// Holds the function that is being called.
+	int functionSelection = 0;
 
 };
 
