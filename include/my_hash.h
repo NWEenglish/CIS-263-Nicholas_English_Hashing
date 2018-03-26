@@ -64,7 +64,19 @@ class my_Hash {
  	*************************************************************/ 
 	Superhero & get(const std::string name) {
 
+	    /* Variable(s) */
+	    // Holds the location of the object
+	    int location = 0;
+
 	    /* Gets name through the hash function */
+	    if(functionSelection == 1)
+		location = hashFunction1(name);
+	    else if(functionSelection == 2)
+		location = hashFunction2(name);
+	    else if(functionSelection == 3)
+		location = hashFunction3(name);
+
+	    return hashMap[location][0];
 
 	}
 
