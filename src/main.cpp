@@ -77,7 +77,7 @@ int main(int argc, char** argv) {
     
     /* Used to read in the file */
     // (1) https://github.com/irawoodring/343/blob/master/operator_overloading/code_samples/vector.cpp
-    io::CSVReader < SIZE, io::trim_chars < ' ' >, io::double_quote_escape < ',', '\"' > > in("src/superhero_data.csv")
+    io::CSVReader < SIZE, io::trim_chars < ' ' >, io::double_quote_escape < ',', '\"' > > in("src/superhero_data.csv");
     in.read_header(io::ignore_extra_column, "page_id", "name", "urlslug",
 	"ID", "ALIGN", "EYE", "HAIR", "SEX", "GSM", "ALIVE", "APPEARANCES",
 	"FIRST APPEARANCE", "Year");
@@ -100,7 +100,7 @@ int main(int argc, char** argv) {
 	    alive = false;
 
 	/* Inserts parameters into the object */
-	superhero.setPgID(page_ID);
+	superhero.setPgID(page_id);
 	superhero.setName(name);
 	superhero.setUrl(urlslug);
 	superhero.setID(id);
@@ -137,7 +137,7 @@ int main(int argc, char** argv) {
 
     /* End of program reached */
     output.close();
-    std::cout << "\n\n\n" < std::endl;
+    std::cout << "\n\n\n" << std::endl;
     return 0;
 
 }

@@ -15,7 +15,7 @@
 // (2) https://msdn.microsoft.com/en-us/library/07x6b05d.aspx
 
 /* Calls the constructor for a Superhero object */
-void superhero::superhero(){}
+Superhero::Superhero(){}
 
 /* Getters Implementation */
 std::string Superhero::getName() const {return name;}
