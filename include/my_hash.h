@@ -17,7 +17,7 @@ class my_Hash {
 
 	/* Default constructor */
 	my_Hash() {
-	    hashTable.reserve(SIZE);
+	    hashMap.reserve(SIZE);
 	}
 
 	/*************************************************************
@@ -39,13 +39,34 @@ class my_Hash {
 	    else if(functionSelection == 3)
 		location = hashFunction3(superhero.getName());
 
+	    /* Determine if an object is already here */
+	    // (1) http://www.cplusplus.com/reference/vector/vector/push_back/
+	    if(hashMap[location].size() == 0) {
+		ableToInsert = true;
+		hashTable[location].push_back(superhero);
+	    }
+
+	    else {
+		ableToInsert = false;
+		hashMap[location].push_back(superhero);
+	    }
+
 	    return ableToInsert;
 	}
 
 	/*************************************************************
- 	* 
+ 	* This function has used similiar code to the insert function
+ 	* but instead returns the location of where the superhero is
+ 	* placed in the hash map.
+ 	*
+ 	* @param name The superhero's name.
+ 	* @return The superhero object.
  	*************************************************************/ 
-	Superhero & get(const std::string name);
+	Superhero & get(const std::string name) {
+
+	    /* Gets name through the hash function */
+
+	}
 
 	/*************************************************************
 	 * First hash function. This function works by taking the
@@ -115,7 +136,7 @@ class my_Hash {
 	const int SIZE = 17011;
 
 	// Holds the Superhero object in a double vector.
-	std::vector< std::vector<Superhero> > hash
+	std::vector< std::vector<Superhero> > hashMap;
 
 	// Holds the function that is being called.
 	int functionSelection = 0;
@@ -124,8 +145,8 @@ class my_Hash {
 
 /* Ideas for handleing collisions:
  * (1) Go to the next available spot.
- * (2) Chaining
- * (3) Quadratic Probing
+ * (2) Chaining.
+ * (3) Quadratic Probing.
  */
 
 #endif // __H_myHash__
