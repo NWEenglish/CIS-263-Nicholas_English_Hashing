@@ -27,7 +27,7 @@ class my_Hash {
  	* @return A boolean that returns true if there was a 
  	*     collision.
  	*************************************************************/ 
-	bool insert(const Superhero & s) {
+	bool insert(const Superhero & superhero) {
 	    int location = 0;
 	    bool ableToInsert = false;
 
@@ -43,7 +43,7 @@ class my_Hash {
 	    // (1) http://www.cplusplus.com/reference/vector/vector/push_back/
 	    if(hashMap[location].size() == 0) {
 		ableToInsert = true;
-		hashTable[location].push_back(superhero);
+		hashMap[location].push_back(superhero);
 	    }
 
 	    else {

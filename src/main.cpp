@@ -19,11 +19,11 @@
 /* Include statement(s) */
 #include <iostream>
 #include <vector>
-#include <iostream>
 #include <fstream>
 
 #include "cvs.h"
 #include "my_hash.h"
+#include "superhero.cpp"
 
 /* Size of parameters being read in for the Superhero object */
 //#define SIZE 13
@@ -71,9 +71,9 @@ int main(int argc, char** argv) {
     hashmap3.setHashFunction(3);
 
     /* Collision counters */
-    collision1 = 0;
-    collision2 = 0;
-    collision3 = 0;
+    int collision1 = 0;
+    int collision2 = 0;
+    int collision3 = 0;
     
     /* Used to read in the file */
     // (1) https://github.com/irawoodring/343/blob/master/operator_overloading/code_samples/vector.cpp
@@ -112,7 +112,7 @@ int main(int argc, char** argv) {
 	superhero.setAlive(alive);
 	superhero.setAppear(appearance);
 	superhero.setFirst(first_appearance);
-	superhero.setYeat(year);
+	superhero.setYear(year);
 
 	/* Inserts object into the hash table */
 	if(hashmap1.insert(superhero) == false)

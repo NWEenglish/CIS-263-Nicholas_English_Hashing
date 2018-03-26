@@ -7,20 +7,20 @@
 * @version 1.0
 *********************************************************************/
 
-#include <iostream>
 #include "superhero.h"
 #include <string>
 
 /** Implementation of superhero.h */
 // (1) https://stackoverflow.com/questions/14517546/how-can-a-c-header-file-include-implementation
+// (2) https://msdn.microsoft.com/en-us/library/07x6b05d.aspx
 
 /* Calls the constructor for a Superhero object */
-Superhero::superhero(){}
+void superhero::superhero(){}
 
 /* Getters Implementation */
 std::string Superhero::getName() const {return name;}
 
-int Superehero::getPgID() const {return page_id;}
+int Superhero::getPgID() const {return page_id;}
 
 /* Setters Implementation */
 void Superhero::setPgID(int p) {page_id = p;}
@@ -37,7 +37,7 @@ void Superhero::setEye(char e) {eye_color = e;}
 
 void Superhero::setHair(char h) {hair_color = h;}
 
-void Superhero::setSex(char s) {sex = s};
+void Superhero::setSex(char s) {sex = s;}
 
 void Superhero::setGSM(std::string g) {gsm = g;}
 

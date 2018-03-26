@@ -15,12 +15,12 @@
 #include <iostream>
 
 
-class superhero {
+class Superhero {
 
     public:
 
 	/* Default Constructor */
-	superhero();
+	Superhero();
 
 	/** Setters */
 	// (1) http://www.zeuscmd.com/tutorials/cplusplus/50-GettersAndSetters.php
@@ -39,7 +39,7 @@ class superhero {
 	void setPgID(int p);
 
 	// Set alignment
-	void setAlign(int a);
+	void setAlign(std::string a);
 
 	// Set eye_color
 	void setEye(char e);
