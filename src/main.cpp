@@ -23,7 +23,7 @@
 
 #include "cvs.h"
 #include "my_hash.h"
-#include "superhero.cpp"
+//#include "superhero.cpp"
 
 /* Size of parameters being read in for the Superhero object */
 //#define SIZE 13
