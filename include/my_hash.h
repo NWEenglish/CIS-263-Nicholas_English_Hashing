@@ -93,7 +93,7 @@ class my_Hash {
 	    int asciiValue = 0;
 
 	    /* Loops through the entire string */
-	    for(int i = 0; i < name.size(); i++) {
+	    for(unsigned int i = 0; i < name.size(); i++) {
 		asciiValue =+ name[i];
 	    }
 	    
